@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'rest_framework',
+    'django_filters',
 
 ]
 
