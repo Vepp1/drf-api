@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import re   
+import re
 
 if os.path.exists('env.py'):
     import env
@@ -64,9 +64,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
     'localhost',
     '127.0.0.1',
-    os.environ.get('ALLOWED_HOST'),
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -81,6 +81,8 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -122,8 +124,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api.urls'
 
