@@ -72,10 +72,12 @@ ALLOWED_HOSTS = [
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN'),
-        "http://localhost:8080",
-        "http://127.0.0.1:9000",
         "http://localhost:3000",
+        "http://192.168.1.236:3000",
     ]
+
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
