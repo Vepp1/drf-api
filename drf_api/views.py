@@ -14,7 +14,7 @@ def root_route(request):
 # dj_rest_auth logout view fix
 @api_view(['POST'])
 def logout_route(request):
-    response = Response
+    response = Response()
     response.set_cookie(
         key=JWT_AUTH_COOKIE,
         value='',
@@ -25,7 +25,7 @@ def logout_route(request):
         secure=JWT_AUTH_SECURE,
     )
     response.set_cookie(
-        key=JWT_AUTH_COOKIE,
+        key=JWT_AUTH_REFRESH_COOKIE,
         value='',
         httponly=True,
         expires='Thu, 01 Jan 1970 00:00:00 GMT',
